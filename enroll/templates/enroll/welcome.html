@@ -1,0 +1,43 @@
+{% extends 'enroll/base_public.html' %}
+
+{% block content %}
+<div class="container py-5">
+
+    <h1 class="text-center mb-4">Welcome to Digital Society System</h1>
+
+    <p class="text-center mb-4">
+        Manage your society smarter – complaints, maintenance, notices, members, events, gallery and more.
+    </p>
+
+    <div class="row mt-4">
+
+        <div class="col-md-4">
+            <div class="card p-3 shadow-sm">
+                <h4>📌 Smart Notifications</h4>
+                <p>Instantly notify all society members in one click.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card p-3 shadow-sm">
+                <h4>🏠 Members & Flats</h4>
+                <p>Complete management of all members and flats.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card p-3 shadow-sm">
+                <h4>💸 Online Payments</h4>
+                <p>Pay maintenance and society funds online, securely.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="{% url 'login' %}" class="btn btn-primary px-4">Login</a>
+        <a href="{% url 'signup' %}" class="btn btn-outline-primary px-4">Sign Up</a>
+    </div>
+
+</div>
+{% endblock %}

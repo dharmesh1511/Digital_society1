@@ -1,0 +1,38 @@
+{% extends 'enroll/base.html' %}
+{% block content %}
+
+<h3>Event Payments</h3>
+
+<table class="table table-bordered">
+<tr>
+    <th>Event</th>
+    <th>Amount</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+
+{% for row in records %}
+<tr>
+    <td>{{ row.event.title }}</td>
+    <td>₹{{ row.amount }}</td>
+    <td>
+        {% if row.status == 'Paid' %}
+            <span class="badge bg-success">Paid</span>
+        {% else %}
+            <span class="badge bg-danger">Unpaid</span>
+        {% endif %}
+    </td>
+    <td>
+        {% if row.status == 'Unpaid' %}
+            <a href="{% url 'event_payment_pay' row.id %}" class="btn btn-primary btn-sm">
+                Pay Now
+            </a>
+        {% else %}
+            ---
+        {% endif %}
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}

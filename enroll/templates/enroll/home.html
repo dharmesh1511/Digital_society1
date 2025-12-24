@@ -1,0 +1,53 @@
+{% extends 'enroll/base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+{% block header %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+
+        <!-- Total Members -->
+        <div class="col-md-4 mb-3">
+            <div class="card shadow p-3 bg-primary text-white rounded">
+                <h5>Total Members</h5>
+                <h2>{{ total_members }}</h2>
+            </div>
+        </div>
+
+        <!-- Total Flats -->
+        <div class="col-md-4 mb-3">
+            <div class="card shadow p-3 bg-success text-white rounded">
+                <h5>Total Flats</h5>
+                <h2>{{ total_flats }}</h2>
+            </div>
+        </div>
+
+        <!-- Pending Complaints -->
+        <div class="col-md-4 mb-3">
+            <div class="card shadow p-3 bg-warning text-dark rounded">
+                <h5>Pending Complaints</h5>
+                <h2>{{ pending_complaints }}</h2>
+            </div>
+        </div>
+
+        <!-- Upcoming Events -->
+        <div class="col-md-6 mb-3">
+            <div class="card shadow p-3 bg-info text-white rounded">
+                <h5>Upcoming Events</h5>
+                <h2>{{ upcoming_events }}</h2>
+            </div>
+        </div>
+
+        <!-- Maintenance Status -->
+        <div class="col-md-6 mb-3">
+            <div class="card shadow p-3 bg-danger text-white rounded">
+                <h5>Pending Maintenance</h5>
+                <h2>{{ pending_maintenance }}</h2>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

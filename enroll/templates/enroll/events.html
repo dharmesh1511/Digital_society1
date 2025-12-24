@@ -1,0 +1,27 @@
+{% extends 'enroll/base.html' %}
+{% block content %}
+
+<h2>Upcoming Events</h2>
+
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for event in events %}
+        <tr>
+            <td>{{ event.title }}</td>
+            <td>{{ event.date }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="2">No events available.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

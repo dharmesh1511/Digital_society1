@@ -1,0 +1,166 @@
+{% extends "enroll/base_public.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="contact-hero">
+    <div class="overlay d-flex align-items-center justify-content-center text-center">
+        <div class="hero-text animate-fade">
+            <h1 class="display-3 fw-bold">Contact Us</h1>
+            <p class="lead">We are here to help you</p>
+            <a href="#contact-form" class="hero-btn">Send a Message</a>
+        </div>
+    </div>
+</section>
+
+<section id="contact-form" class="py-5">
+    <div class="container">
+        <div class="row g-5">
+
+            <!-- Contact Form -->
+            <div class="col-md-6" data-aos="fade-right">
+                <div class="glass-card p-4">
+                    <h3 class="fw-bold mb-4">Send us a message</h3>
+
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-success text-center">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <form method="POST" action="{% url 'contact_send' %}">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label>Name</label>
+                            <input type="text" name="name" class="form-control form-control-lg glass-input" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Email</label>
+                            <input type="email" name="email" class="form-control form-control-lg glass-input" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Phone</label>
+                            <input type="text" name="phone" class="form-control form-control-lg glass-input">
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Message</label>
+                            <textarea name="message" rows="4" class="form-control form-control-lg glass-input" required></textarea>
+                        </div>
+
+                        <button type="submit" class="hero-btn btn-lg w-100 mt-2">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="col-md-6" data-aos="fade-left">
+                <div class="glass-card p-4">
+                    <h3 class="fw-bold mb-4">Get in touch</h3>
+
+                    <p>📍 <strong>Address:</strong> Ashapuri Society, Near Sharnam 1, Jodhpur Village, Ahmedabad, Gujarat 380015</p>
+                    <p>📞 <strong>Phone:</strong> +91 77790 09972</p>
+                    <p>📧 <strong>Email:</strong> lakumdharmesh799@gmail.com</p>
+
+                    <div class="map-box mt-4" data-aos="zoom-in">
+                        <iframe
+                            src="https://maps.google.com/maps?q=India&t=&z=5&ie=UTF8&iwloc=&output=embed"
+                            width="100%" height="250" style="border:0;" allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+/* Hero */
+.contact-hero {
+    height: 65vh;
+    background: url("{% static 'images/contect.png' %}") center/cover no-repeat;
+    position: relative;
+}
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.4));
+}
+.hero-text {
+    color: #fff;
+    text-align: center;
+}
+.hero-text h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+.hero-text p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+.hero-btn {
+    display: inline-block;
+    background: linear-gradient(135deg,#0d6efd,#6610f2);
+    color: #fff;
+    padding: 12px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.hero-btn:hover {
+    background: linear-gradient(135deg,#6610f2,#0d6efd);
+}
+
+/* Glass Card */
+.glass-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,0.18);
+    color: #fff;
+    transition: 0.4s ease;
+}
+.glass-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Glass Input */
+.glass-input {
+    background: rgba(255,255,255,0.18);
+    border: none;
+    color: #fff;
+}
+.glass-input::placeholder {
+    color: #ddd;
+}
+.glass-input:focus {
+    background: rgba(255,255,255,0.25);
+    color: #fff;
+    box-shadow: none;
+}
+
+/* Map */
+.map-box iframe {
+    border-radius: 15px;
+}
+
+/* Animations */
+.animate-fade {
+    animation: fadeInUp 1s ease forwards;
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+{% endblock %}

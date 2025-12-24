@@ -1,0 +1,36 @@
+{% extends 'enroll/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+
+    <h3>Donation Payment</h3>
+
+    <div class="card p-4 shadow mt-3">
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label>Donation Amount</label>
+                <input type="number" name="amount" class="form-control" required>
+            </div>
+
+            <!-- Payment Options -->
+            <label class="form-label">Choose Payment Method</label>
+            <div class="mb-3">
+                <select name="payment_method" class="form-select" required>
+                    <option value="">--Select Payment Method--</option>
+                    <option value="phonepe">PhonePe</option>
+                    <option value="paytm">Paytm</option>
+                    <option value="razorpay">Razorpay</option>
+                    <option value="gpay">GPay</option>
+                </select>
+            </div>
+
+            <button class="btn btn-success">
+                Donate Now
+            </button>
+        </form>
+    </div>
+
+</div>
+{% endblock %}

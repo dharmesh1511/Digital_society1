@@ -1,0 +1,20 @@
+{% extends "enroll/base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h3>Your Notifications</h3>
+
+    {% for n in notifications %}
+        <div class="card p-3 mt-2 {% if not n.is_read %}border-primary{% endif %}">
+            <h5>{{ n.title }}</h5>
+            <p>{{ n.message }}</p>
+            <small>{{ n.created_at }}</small>
+
+            {% if not n.is_read %}
+                <a href="{% url 'mark_as_read' n.id %}" class="btn btn-sm btn-success mt-2">Mark as Read</a>
+            {% endif %}
+        </div>
+    {% empty %}
+        <p>No notifications.</p>
+    {% endfor %}
+</div>
+{% endblock %}

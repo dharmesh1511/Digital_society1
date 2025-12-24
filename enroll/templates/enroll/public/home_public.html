@@ -1,0 +1,232 @@
+{% extends "enroll/base_public.html" %}
+{% load static %}
+{% block content %}
+
+<div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+
+    <div class="carousel-inner">
+
+        <div class="carousel-item active hero-slide hero-1">
+            <div class="hero-overlay">
+                <div class="hero-text">
+                    <h1>Digital Society Management</h1>
+                    <p>Smart way to manage your society</p>
+                    <a href="{% url 'signup' %}" class="hero-btn">Get Started</a>
+                </div>
+            </div>
+        </div>
+
+       <div class="carousel-item hero-slide hero-2">
+            <div class="hero-overlay">
+                <div class="hero-text">
+                    <h1>Easy Complaint System</h1>
+                    <p>Raise and track issues seamlessly</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-item hero-slide hero-3">
+            <div class="hero-overlay">
+                <div class="hero-text">
+                    <h1>Online Maintenance Tracking</h1>
+                    <p>Transparent and paperless system</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+
+<section class="stats-section">
+    <div class="container">
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="glass-card stat-card">
+                    <h2>500+</h2>
+                    <p>Happy Members</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="glass-card stat-card">
+                    <h2>120+</h2>
+                    <p>Total Flats</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="glass-card stat-card">
+                    <h2>98%</h2>
+                    <p>Issues Resolved</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="features-section">
+    <div class="container">
+        <h2 class="section-title">Powerful Features</h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="glass-card feature-card">
+                    <span class="material-icons">Notifications</span>
+                    <h5>Digital Notices</h5>
+                    <p>Instant announcements and alerts</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="glass-card feature-card">
+                    <span class="material-icons">Report</span>
+                    <h5>Complaint Management</h5>
+                    <p>Track complaints in real time</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="glass-card feature-card">
+                    <span class="material-icons">Payment</span>
+                    <h5>Online Payments</h5>
+                    <p>Secure maintenance payments</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="cta-section text-center">
+    <div class="container">
+        <h2>Join Digital Society Today</h2>
+        <p>Make your society smart & transparent</p>
+        <a href="{% url 'signup' %}" class="hero-btn white-btn">Create Account</a>
+    </div>
+</section>
+
+
+<style>
+/* HERO BACKGROUNDS */
+.hero-1 { background-image: url("{% static 'images/1s.jpg' %}"); }
+.hero-2 { background-image: url("{% static 'images/2nd.webp' %}"); }
+.hero-3 { background-image: url("{% static 'images/3rd.webp' %}"); }
+
+/* BASE STYLES */
+body {
+    background:#0b0f1a;
+    color:#ffffff;
+}
+
+/* HERO */
+.hero-slide {
+    height: 90vh;
+    background-size: cover;
+    background-position: center;
+}
+.hero-overlay {
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,0.75);
+}
+.hero-text {
+    text-align:center;
+    max-width:700px;
+}
+.hero-text h1 {
+    font-size:3.5rem;
+    font-weight:800;
+}
+.hero-text p {
+    opacity:0.85;
+}
+
+/* BUTTON */
+.hero-btn {
+    display:inline-block;
+    background:rgba(255,255,255,0.15);
+    padding:12px 35px;
+    border-radius:50px;
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.2);
+    transition:.3s;
+}
+.hero-btn:hover {
+    background:#0d6efd;
+}
+.white-btn {
+    background:#fff;
+    color:#000;
+}
+
+/* GLASS CARD */
+.glass-card {
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(14px);
+    border-radius:20px;
+    padding:40px;
+    border:1px solid rgba(255,255,255,0.15);
+    box-shadow:0 20px 50px rgba(0,0,0,0.4);
+    transition:.4s;
+}
+.glass-card:hover {
+    transform:translateY(-12px);
+}
+
+/* STATS */
+.stats-section {
+    padding:80px 0;
+}
+.stat-card h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #0d6efd, #20c997);
+    color: #20c997; /* fallback color for non-webkit browsers */
+    -webkit-background-clip: text; /* Chrome, Safari */
+    -webkit-text-fill-color: transparent; /* Chrome, Safari */
+    background-clip: text; /* Firefox support */
+    display: inline-block;
+}
+.stat-card p {
+    opacity:0.8;
+}
+
+/* FEATURES */
+.features-section {
+    padding:80px 0;
+}
+.section-title {
+    text-align:center;
+    font-weight:800;
+    margin-bottom:50px;
+}
+.feature-card span {
+    font-size:50px;
+    color:#0d6efd;
+    margin-bottom:15px;
+}
+
+/* CTA */
+.cta-section {
+    padding:90px 0;
+    background:linear-gradient(135deg,#0d6efd,#6610f2);
+}
+</style>
+
+{% endblock %}

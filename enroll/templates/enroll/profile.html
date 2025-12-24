@@ -1,0 +1,26 @@
+{% extends 'enroll/base.html' %}
+{% load static %} 
+{% block content %}
+<div class="container mt-5">
+    <div class="card p-4 shadow">
+        <h3 class="text-center mb-4">My Profile</h3>
+
+        <div class="text-center mb-3">
+          <img src="{% if profile.profile_image %}{{ profile.profile_image.url }}{% else %}{% static 'images/profile.jpg' %}{% endif %}" 
+     class="rounded-circle" width="120" height="120" alt="Profile Image">
+
+        </div>
+
+        <div class="mb-2"><strong>Username:</strong> {{ profile.user.username }}</div>
+        <div class="mb-2"><strong>Email:</strong> {{ profile.user.email }}</div>
+        <div class="mb-2"><strong>Phone:</strong> 
+            {% if profile.phone %}{{ profile.phone }}{% else %}Not Provided{% endif %}
+        </div>
+        <div class="mb-2"><strong>Join Date:</strong> {{ profile.join_date|date:"d M Y" }}</div>
+
+        <div class="mt-4 text-center">
+            <a href="{% url 'settings' %}" class="btn btn-primary">Edit Settings</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

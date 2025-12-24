@@ -1,0 +1,23 @@
+{% extends "enroll/base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <div class="card p-4 shadow">
+        <h3 class="mb-3">Send Notification</h3>
+
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-primary">Send</button>
+        </form>
+    </div>
+
+    <div class="card mt-4 p-3 shadow">
+        <h4>Recent Notifications</h4>
+        <ul>
+            {% for n in notifications %}
+                <li><b>{{ n.title }}</b> – {{ n.message }} ({{ n.created_at }})</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'enroll/base.html' %}
+{% block content %}
+
+<div class="container mt-4">
+    <h3>My Complaints</h3>
+
+    {% if complaints %}
+        <table class="table table-bordered">
+            <tr>
+                <th>Subject</th>
+                <th>Status</th>
+                <th>Date</th>
+            </tr>
+
+            {% for c in complaints %}
+            <tr>
+                <td>{{ c.subject }}</td>
+                <td>
+                    {% if c.status == 'Pending' %}
+                        <span class="badge bg-warning">Pending</span>
+                    {% else %}
+                        <span class="badge bg-success">Resolved</span>
+                    {% endif %}
+                </td>
+                <td>{{ c.date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No complaints found.</p>
+    {% endif %}
+
+    <a href="{% url 'complaint_add' %}" class="btn btn-primary">Add New Complaint</a>
+</div>
+
+{% endblock %}
